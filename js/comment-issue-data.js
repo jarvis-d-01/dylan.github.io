@@ -11,7 +11,7 @@ var COMMENT_CACHE_KEY = "commentKey";
 var valine;
 
 // 管理员名称,评论时添加 [博主] 后缀
-var ADMIN_NAME = "removeif";
+var ADMIN_NAME = "谢尔比";
 
 function ajaxReqForGitHub(url, authorizationToken, call) {
     $.ajax({
@@ -295,7 +295,8 @@ function loadIssueData(appId, appKey, userName, userRepo, isValine) {
                         pageSize: 10,
                         visitor: false,
                         highlight: true,
-                        recordIP: false
+                        recordIP: false,
+						comment_count: true
                     });
                 }
             }
