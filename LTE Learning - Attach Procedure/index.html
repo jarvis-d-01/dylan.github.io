@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>LTE Learning - Attach Procedure - 谢尔比</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="谢尔比"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="谢尔比"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content=""><meta property="og:type" content="blog"><meta property="og:title" content="Peaky·Blinders"><meta property="og:url" content="https://jarvis-d-01.github.io/"><meta property="og:site_name" content="Peaky·Blinders"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://jarvis-d-01.github.io/img/og_image.png"><meta property="article:published_time" content="2021-09-02T16:00:00.000Z"><meta property="article:modified_time" content="2021-09-04T17:55:23.367Z"><meta property="article:author" content="dylan zhu"><meta property="article:tag" content="通信技术"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://jarvis-d-01.github.io/LTE%20Learning%20-%20Attach%20Procedure/"},"headline":"谢尔比","image":["https://jarvis-d-01.github.io/img/og_image.png"],"datePublished":"2021-09-02T16:00:00.000Z","dateModified":"2021-09-04T17:55:23.367Z","author":{"@type":"Person","name":"Dylan Zhu"},"description":""}</script><link rel="canonical" href="https://jarvis-d-01.github.io/LTE%20Learning%20-%20Attach%20Procedure/"><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/vs2015.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><script>var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?e89cfcb4bd6fa4938426bfabf84317f1";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();</script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><script async="" referrerpolicy="no-referrer" src="//cdn.jsdelivr.net/npm/leancloud-storage@3/dist/av-min.js"></script><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script src="/js/md5.min.js"></script><meta name="generator" content="Hexo 5.3.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://cdn.jsdelivr.net/gh/jarvis-d-01/image@main/title2.png" alt="谢尔比" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/self-talking">杂谈</a><a class="navbar-item" href="/album">相册</a><a class="navbar-item" href="/message">留言</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download This Theme" href="https://github.com/removeif/hexo-theme-amazing"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2021-09-03  <a class="commentCountImg" href="/LTE%20Learning%20-%20Attach%20Procedure/#comment-container"><span class="display-none-class">/LTE Learning - Attach Procedure/</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="788d4d1fa32b33a857247b59bcc23fa5">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>24 分钟  <i class="fas fa-pencil-alt"> </i>3.6 k</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">LTE Learning - Attach Procedure</h1><div class="content"><h2 id="LTE-Learning-Attach-Procedure"><a href="#LTE-Learning-Attach-Procedure" class="headerlink" title="LTE Learning - Attach Procedure"></a>LTE Learning - Attach Procedure</h2><p>[流程图所在地]</p>
+<a id="more"></a>
+
+<p>步骤详解：</p>
+<ol>
+<li><p>UE 发送一个Attach Request 到 eNodeB。</p>
+<ul>
+<li><p>Q : Attach Request 携带了哪些信息？</p>
+<p>A ：&#x1F535; IMSI or old GUTI, Old GUTI type, last visited TAI (if available) &#x1F535; UE Core Network Capability &#x1F535; UE Specific DRX parameters, extended idle mode DRX parameters &#x1F535; UE paging probability information &#x1F535; Attach Type &#x1F535; ESM message container (Request Type, PDN Type, Protocol Configuration Options, Ciphered Options Transfer Flag, Header Compression Configuration)&#x1F535; KSIASME &#x1F535;NAS sequence number, NAS-MAC, additional GUTI, P-TMSI signature &#x1F535; Voice domain preference and UE’s usage setting &#x1F535; Preferred Network behaviour, MS Network Capability &#x1F535; Support for restriction of use of Enhanced Coverage &#x1F535;UE has UE Radio Capability ID assigned for the selected PLMN &#x1F535; Requested IMSI Offset) message together with <strong>RRC parameters</strong> indicating the Selected Network and the old GUMMEI</p>
+</li>
+<li><p>Q : 这些信息分别代表什么？</p>
+<p>A: 部分信息表示</p>
+<table>
+<thead>
+<tr>
+<th>信息名</th>
+<th>全拼</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IMSI</td>
+<td>International Mobile Subscriber Indentity（国际移动用户识别码）</td>
+<td>由sim卡决定。是用户在蜂窝网络中的唯一不重复的识别码。 IMSI 由移动国家代码(MCC - Mobile Country Code) + 移动网络代码(MNC - Mobile Network Code) + 移动用户识别代码(MSIN - Mobile subscription identification number),取值标准为10进制。</td>
+</tr>
+<tr>
+<td>GUTI</td>
+<td>Global Unique Temporary UE Identity(全球唯一临时标识)</td>
+<td>由核心网分配。为了避免IMSI频繁暴露在网络传输中。它是由全球唯一MME标识(GUMMEI)及M-TMSI组成。GUMMEI = MCC + MNC + MMEI, MMEI = MMEGI(MME群组标识) + MMEC(MME码)</td>
+</tr>
+<tr>
+<td>TAI</td>
+<td>Tracking Area Identifier(跟踪区域标识符)</td>
+<td>TAI = MCC + MNC + TAC(Tracking Area Code，跟踪区域代码)</td>
+</tr>
+<tr>
+<td>UE Core Network Capability</td>
+<td>UE核心网质量</td>
+<td></td>
+</tr>
+<tr>
+<td>Attach Type</td>
+<td>附着类型</td>
+<td></td>
+</tr>
+<tr>
+<td>ESM message container</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>RRC Parameter</td>
+<td>RRC(Radio Resource Control) 参数</td>
+<td></td>
+</tr>
+<tr>
+<td>GUMMEI</td>
+<td>Global Unique MME Indentity(全球唯一MME识别号)</td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+<li><p>Q ： UE 如何选择所需的eNodeB？</p>
+<p>A ： ？根据UE当前所在 TA 的网络质量选择对应的 eNodeB</p>
+</li>
+</ul>
+</li>
+<li><p>eNodeB 接受到 UE 的请求，发送 Attach Request message 给 MME。</p>
+<ul>
+<li><p>Q : 此 Attach Request 和 UE 发送的有什么区别？</p>
+<p>？A ：eNodeB 会从request中的 RRC parameter， 提取出 GUMMEI, 然后根据其定位到指定MME，转发Attach Request。如果没有 GUMMEI 或者 GUMMEI 在当前的区域无效，那么 eNodeB 触发 MME selection function。</p>
+</li>
+<li><p>Q : eNodeB 如何选择 MME？</p>
+<p>A ：此选择是基于网络拓朴的形式。eNodeB 利用<strong>网络均衡</strong>参数在不同可以接入的 MME 之间进行筛选。为了满足 UE 的 mobility 能力，eNodeB 往往会选择 MMEs 集群，来减少因 TA 的更新导致的 MME 的频繁切换。</p>
+</li>
+</ul>
+</li>
+<li><p>(Optional) MME 向旧的 MME 发送 Identification Request。</p>
+<ul>
+<li><p>Q : 什么时候会触发这个可选步骤？</p>
+<p>A ：当 UE 用 GUTI 标识自己，且 由于 detach，切换到了其他的 MME。</p>
+</li>
+<li><p>Q : 请求的目的是什么？</p>
+<p>A : 求得当前 UE 的 IMSI。</p>
+</li>
+<li><p>Q : Identification Request 包含什么内容？</p>
+<p>A ：old GUTI 和 完整的 Attach Request message。</p>
+</li>
+<li><p>Q : 如何找到旧的 MME ？</p>
+<p>A : 从 GUTI 中提取 old MME/SGSN 的地址。</p>
+</li>
+<li><p>Q : 请求的具体过程</p>
+<p>A : MME 从 GUTI 中提取 old MME/SGSN 的地址，然后发送对应的 old MME/SGSN， old MME在通过 NAS MAC 来验证 Attach Request message，最后返回响应。如果是 SGSN，会先用 P-TMSI信令来验证。如果验证失败，则会返回一个适合的错误原因(详见，29.274)。</p>
+</li>
+</ul>
+<p>(Optional) 旧的 MME 返回 Identification Response 给 MME。 </p>
+<ul>
+<li><p>Q : Indentification Response 包含什么内容？</p>
+<p>A ：MM context。包含安全相关的信息及其他参数（包括 IMSI ）。</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>Note: SGSN 总是会响应 UMTS 安全参数，MME 可能为了后续的使用会存储它。</p>
+<ol start="4">
+<li><p>(Optional) MME 发送 Identity Request 给 UE 。</p>
+<ul>
+<li><p>Q : 什么时候会触发这个步骤?</p>
+<p>A : 如果 UE 在 新的 MME 和旧的 MME 都是未知的时候。</p>
+</li>
+<li><p>Q : Identity Request包含什么内容？</p>
+<p>A : ?</p>
+</li>
+</ul>
+<p>(Optional) UE 发送Identity Response 给 MME。</p>
+<ul>
+<li>Q ：Identity Response 包含什么内容？<br>A : IMSI。</li>
+</ul>
+</li>
+<li><p>a. (Optional) MME 得到 UE 的信息，进行鉴权和安全认证。 如果是漫游的情况，再和HSS进行确认。</p>
+<ul>
+<li><p>Q : 什么时候会触发这个步骤？</p>
+<p>A : 如果网络没有 UE 存在的 UE context，或者 Attach Request（UE -&gt; eNodeB） 没有被完整保护，或者完整性核实失败，这时就会激活完整保护和 NAS 加密设置。 如果 NAS 安全算法会被更改，NAS 安全设置也会在这步进行。</p>
+</li>
+<li><p>Q : MME 和 UE 之间的具体内容是什么？</p>
+<p>A : NAS Security Mode Command(Selected NAS algorithms, eKSI(根密钥(KASME)的ID), ME Identity request，UE Security Capability)。</p>
+</li>
+<li><p>Q : MME 和 UE 之间如何确认的？</p>
+<p>A : MME 发送了 NAS Security Mode Command 到 UE， 然后 UE 响应 NAS with Security Mode Complete(NAS-MAC, ME Identity) message.</p>
+</li>
+<li><p>Q : 漫游情况下，MME 是如何和 HSS 进行确认</p>
+<p>A : 如果 MME 支持 RLOS 绑定 且 UE 的绑定类型是 Rstricted Local Operator Service, MME 跳过 鉴权和安全设置，直接向 HSS 获取安全信息，并继续 Attach Procedure。</p>
+</li>
+</ul>
+<p>b. (Optional) MME 和 UE 之间 Identity Request/Response ，然后 MME 和 EIR 之间进行设备认证。</p>
+<ul>
+<li><p>Q : 什么时候会触发这个步骤？ </p>
+<p>A : EIR 需要对 UE 设备进行认证。IMEISV</p>
+</li>
+<li><p>Q : 具体流程是什么？</p>
+<p>A : MME 发送 ME Identity Request(Idnetity Type, 为了降低信令延迟，会将其包含在 a 中的 NAS Security setup。)。 然后 UE 响应 Identity Response(Mobile Identity)。 然后 MME 发送 ME Identity Check Request(ME Identity，IMSI) 到 EIR，EIR 返回 ME Identity Check Ack，来决定 procedure 是否可以继续下去。</p>
+</li>
+<li><p>Q : 当前的Identity Request/Response 和之前的有什么不同？</p>
+<p>A ：之前的是请求 IMEI， 这个请求的是 Identity Type。</p>
+</li>
+<li><p>Q ：MME 和 EIR 之间认证的信息什么？</p>
+<p>A ：ME Identity Check Request。</p>
+</li>
+</ul>
+</li>
+<li><p>(Optional) MME 向 UE 发送 Cliphered Options Request。</p>
+<ul>
+<li><p>Q ：什么时候会触发这个步骤？</p>
+<p>A ：如果 Attach Request message 包含 Ciphered Options Tranfer Flag。</p>
+</li>
+<li><p>Q ：当前的 Cliphered Options Request 包含什么内容？</p>
+<p>A ：PCO(Protocol Configuration Options) 或 APN(Access Point Name),或者两个都会包含。</p>
+</li>
+</ul>
+<p>(Optional) UE 向 MME 发送 Clipehered Options Response。</p>
+<ul>
+<li><p>Q : Cliphered Options Response 包含了什么内容？</p>
+<p>A : 如果 Protocol Configuration Options 包含 用户认证信息， UE 会发送 APN 给 MME。</p>
+</li>
+</ul>
+</li>
+<li><p>(Optional) MME 向 S-GW 发送 Delete Session Request，然后 S-GW 再将这个请求转发给P-GW （详情请到23.402, p91）</p>
+<ul>
+<li><p>Q : 什么时候会触发这个步骤？</p>
+<p>A ：当有激活的承载文本在新的MME，例如当前UE重新 attach 了相同的 MME，但这个 MME 之前没有完全 detach。</p>
+</li>
+<li><p>Q : MME 如何选择 S-GW?</p>
+<p>A : 根据 S-GW 的优先级和权重进行排序。 先优先级，若相同再权重。</p>
+</li>
+<li><p>Q : P-GW 如何发送请求给 S-GW？</p>
+<p>A : S-GW 会先启动网关控制会话终端过程。然后发送一个 Proxy Binding Update(MN NAI, APN, lifetime = 0) message 到 P-GW 去释放 PDN 网关 所包含的 UE 的 PDN 连接。lifetime 用来表示在 UE PDN 连接的生命周期。 </p>
+</li>
+</ul>
+<p>(Optional) P-GW 发送 Delete Session Response 给 S-GW，然后 S-GW 再将其转发给 MME。</p>
+<ul>
+<li><p>Q ：Delete Session Response 包含什么内容？</p>
+<p>A ：The result of PDN connection release with Proxy Binding Update Acknowlegement.</p>
+</li>
+</ul>
+</li>
+<li><p>(Optional) MME发送 Update Location Request 到 HSS。</p>
+<ul>
+<li><p>Q : 什么时候会触发这个步骤？</p>
+<p>A : 1. MME 发生的改变， 2. MME中没有关于UE合理的订阅内容， 3. MME无法根据IMSI 或者GUTI 找到合法内容，4，eNodeB 和 UE 的GUTI内的 PLMN-ID不同。</p>
+</li>
+<li><p>Q : 该请求包含哪些内容？</p>
+<p>A : MME Identity, IMSI, ME Identity (IMEISV), MME Capabilities, ULR-Flags, Homogeneous Support of IMS Voice over PS Sessions, UE SRVCC capability, equivalent PLMN list</p>
+</li>
+</ul>
+<p>(Optional) HSS 发送 Cancel Location Request 到 旧 MME。</p>
+<ul>
+<li><p>Q : 什么时候会触发这个步骤？</p>
+<p>A : 在更新之前，如果 HSS 之前有注册过的与当前 UE 有关的旧MME</p>
+</li>
+<li><p>Q : Cancel Location Request 包含什么内容？</p>
+<p>A : IMSI, CancellationType</p>
+</li>
+</ul>
+</li>
+<li><p>(Optional) 旧 MME 发送 Cancel Location Response Ack 到 HSS。</p>
+<ul>
+<li><p>Q : Cancel Location Response Ack 包含什么内容？</p>
+<p>A : IMSI.</p>
+</li>
+</ul>
+</li>
+<li><p>(Optional) 旧 MME 发送 Delete Session Request 到 S-GW, 然后 S-GW 将其转发给 P-GW。</p>
+<ul>
+<li><p>Q : 什么时候会触发这个步骤？</p>
+<p>A : 在发送了 Cancel Location Response 之后且有关于 UE 的处于激活态的承载内容。</p>
+</li>
+<li><p>Q : S-GW 转发到 P-GW ，信令是否会发生变化？</p>
+<p>A : 暂无</p>
+</li>
+<li><p>Q : Delete Session Request 包含什么内容？</p>
+<p>A : LBI(已链接的EPS承载的ID)。</p>
+</li>
+</ul>
+<p>(Optional) P-GW 发送 Delete Session Response 到 S-GW, 然后 S-GW 将其转发给 MME.</p>
+<ul>
+<li><p>Q : Delete Session Response 包含什么内容？</p>
+<p>A ：Cause 信息。</p>
+</li>
+</ul>
+</li>
+<li><p>(Optional) HSS 发送 Update Location Ack 给 MME</p>
+<ul>
+<li><p>Q : Update Location Ack 包含什么内容？</p>
+<p>A ：IMSI, Subscription data(一个或多个PDN订阅内容).</p>
+</li>
+</ul>
+</li>
+<li><p>MME 发送 Create Session Request 到 S-GW。</p>
+<ul>
+<li><p>Q : 该请求内容包含什么？</p>
+<p>A : IMSI, MSISDN, MME TEID for control plane, PDN GW address, PDN Address, APN, RAT type, LTE-M RAT type reporting to PGW flag, efault EPS Bearer QoS, PDN Type, APN-AMBR, EPS Bearer Identity, Protocol Configuration Options, Handover Indication, ME Identity (IMEISV), User Location Information (ECGI and TAI), UE Time Zone, User CSG Information, MS Info Change Reporting support indication, Selection Mode, Charging Characteristics, Trace Reference, Trace Type, Trigger Id, OMC Identity, Maximum APN Restriction, Dual Address Bearer Flag, the Protocol Type over S5/S8, Serving Network, APN Rate Control Status</p>
+</li>
+<li><p>Q : 如何选择S-GW？</p>
+<p>A : 1. 该选择也是遵循网络拓朴结构。如果 UE 的 TAL 大于 S-GW 的 TAL，就会选择 S-GWs 来减少 S-GW 切换的可能性。2. 保证 S-GWs 之间负载平衡。3. UE 与 NR(New Radio)的双向连接性。4. 如果 S-GW 以上的标准都一样，那么就根据权重(DNS server)来进行选择。</p>
+</li>
+</ul>
+</li>
+<li><p>S-GW 发送 Create Session Request 到 P-GW。</p>
+<ul>
+<li><p>Q ： 发送请求前会做什么？</p>
+<p>A : 在它的 EPS 承载表中创建一个新条目</p>
+</li>
+<li><p>Q : 该请求内容包含什么？</p>
+<p>A : IMSI, MSISDN, APN, Serving GW Address for the user plane, Serving GW TEID of the user plane, Serving GW TEID of the control plane, RAT type, Default EPS Bearer QoS, PDN Type, PDN Address, subscribed APNAMBR, EPS Bearer Identity, Protocol Configuration Options, Handover Indication, ME Identity, User Location Information (ECGI), UE Time Zone, User CSG Information, MS Info Change Reporting support indication, PDN Charging Pause Support indication, Selection Mode, Charging Characteristics, Trace Reference, Trace Type, Trigger Id, OMC Identity, Maximum APN Restriction, Dual Address Bearer Flag, Serving Network, APN Rate Control Status</p>
+</li>
+<li><p>Q : 如何选择 P-GW?</p>
+<p>A : 从 Attach Request 中提取出 P-GW address</p>
+</li>
+</ul>
+</li>
+<li><p>PCEF</p>
+</li>
+<li><p>P-GW 发送 Create Seesion Response 到 S-GW, 此时会有 First Downlink Data(if not handover) 建立</p>
+<ul>
+<li><p>Q : 发送之前会做什么？</p>
+<p>A ：P-GW 在EPS承载内容表内，会创建一个新条目， 并会为默认承载生成一个付费 ID。 </p>
+</li>
+<li><p>Q : Create Seesion Response 的内容是什么(控制面和用户面)？</p>
+<p>A : PDN GW Address for the user plane, PDN GW TEID of the user plane, PDN GW TEID of the control plane, PDN Type, PDN Address, EPS Bearer Identity, EPS Bearer QoS, Protocol Configuration Options, Charging Id, Prohibit Payload Compression, APN Restriction, Cause, MS Info Change Reporting Action (Start) (if the PDN GW decides to receive UE’s location information during the session), CSG Information Reporting Action (Start) (if the PDN GW decides to receive UE’s User CSG information during the session), resence Reporting Area Action (if the PDN GW decides to receive notifications about a change of UE presence in Presence Reporting Area), PDN Charging Pause Enabled indication (if PDN GW has chosen to enable the function), APN-AMBR, Delay Tolerant Connection)</p>
+</li>
+<li><p>Q : First Downlink Data 是什么？</p>
+<p>A ： S-GW 会在获得 Modify Bearer Message 前，且没有发送过下行数据提醒给MME，缓存所有可能从 P-GW 获得下行数据包。</p>
+</li>
+</ul>
+</li>
+<li><p>S-GW 发送 Create Seesion Response 到 MME？</p>
+<ul>
+<li><p>Q : 该请求的内容是什么？</p>
+<p>A ：PDN Type, PDN Address, Serving GW address for User Plane, Serving GW TEID User Plane, Serving GW TEID for control plane, EPS Bearer Identity, EPS Bearer QoS, PDN GW addresses and TEIDs (GTP-based S5/S8) or GRE keys (PMIP-based S5/S8) at the PDN GW(s) for uplink traffic, Protocol Configuration Options, Prohibit Payload Compression, APN Restriction, Cause, MS Info Change Reporting action (Start), Presence Reporting Area Action, CSG Information Reporting Action (Start), APN-AMBR, Delay Tolerant Connection</p>
+</li>
+</ul>
+</li>
+<li><p>MME 发送 Initial Context Setup Request or Downlink NAS transport with Attach Accept 到 eNodeB。</p>
+<ul>
+<li><p>Q : Attach Accept 包含什么？</p>
+<p>A : GUTI, TAI List, Session Management Request (APN, PDN Type, PDN Address, EPS Bearer Identity, Protocol Configuration Options, Header Compression Configuration, Control Plane Only Indicator, Connection Release Supported, Paging Cause Supported, Reject Paging Request Supported, Paging Restriction Supported, Paging timing collision control Supported), NAS sequence number, NAS-MAC, IMS Voice over PS session supported Indication, Emergency Service Support indicator, LCS Support Indication, Supported Network Behaviour, Service Gap Time, Enhanced Coverage Restricted, Indication for support of 15 EPS bearers per UE, PLMN-assigned UE Radio Capability ID, indication for PLMN-assigned UE Radio Capability ID deletion, Accepted IMSI Offset</p>
+</li>
+<li><p>Q : S1-AP Initial Context Setup Request 是什么？</p>
+<p>A : MME 用来请求 UE 的内容设置。包含 Attach message，Activate default EPS bear context request。</p>
+</li>
+<li><p>Q : Downlink NAS transport with Attach Accept是什么？</p>
+<p>A : </p>
+</li>
+<li><p>Q : 这两个 request 分别在什么情况发送？</p>
+</li>
+</ul>
+</li>
+<li><p>eNodeB 发送 RRC Connection Reconfiguration or RRC Direct Transfer 到 UE。</p>
+<ul>
+<li>Q : RRC Connection Reconfiguration 是什么？</li>
+<li>Q : RRC Direct Transfer 是什么？</li>
+<li>Q : 这两个 request 分别在什么情况下发送？</li>
+</ul>
+</li>
+<li><p>UE 发送 RRC Connection Reconfiguration Complete 到 eNodeB。</p>
+<ul>
+<li>Q : 该信令是什么?</li>
+<li>Q : UE 此时是什么状态？</li>
+</ul>
+</li>
+<li><p>eNodeB 发送 Initial Context Setup Response 到 MME。</p>
+<ul>
+<li>Q : Initial Conext Setup Response 包含什么内容</li>
+<li>Q : 此时 eNodeB 是什么状态？</li>
+<li>Q : 此时 MME 是什么状态？</li>
+</ul>
+</li>
+<li><p>UE 发送 Direct Transfer 到 eNodeB。</p>
+<ul>
+<li>Q : Direct Transfer是什么？</li>
+<li>Q : UE 此时是什么状态？</li>
+<li>Q : eNodeB 是什么状态？</li>
+</ul>
+</li>
+<li><p>eNodeB 发送 Attach Complete 到 MME。</p>
+<ul>
+<li>Q : Attach Complete 包含什么？</li>
+<li>Q : eNodeB 是什么状态？</li>
+<li>Q : MME 是什么状态？</li>
+</ul>
+<p>UE 发送 First Uplink Data 到 S-GW，然后 S-GW 将数据转发到 P-GW。</p>
+<ul>
+<li>Q : Uplink Data 包含什么内容？</li>
+<li>Q : 为什么是First？</li>
+<li>Q : UE 和 S-GW 之间建立了什么？</li>
+</ul>
+</li>
+<li><p>MME 发送 Modify Bearer Request 到 S-GW。</p>
+<ul>
+<li>Q : 这个请求包含什么内容？</li>
+</ul>
+<p>a. (Optional) S-GW 发送 Modify Bearer Request 到 P-GW。</p>
+<ul>
+<li>Q : Modify Bearer Request 是在什么情况下触发的？</li>
+<li>Q : Modify Bearer Request 包含什么内容？</li>
+</ul>
+<p>b. (Optional) P-GW 发送 Modify Bearer Response 到 S-GW。</p>
+<ul>
+<li>Q : Modify Bearer Response 包含什么内容？</li>
+</ul>
+</li>
+<li><p>S-GW 发送了 Modify Bearer Response 到 MME。</p>
+<ul>
+<li>Q : 这个请求包含什么内容？</li>
+</ul>
+<p>P-GW 将 First Downlink Data 发送到 S-GW, 然后 S-GW 将数据转发到 UE。</p>
+<ul>
+<li>Q : Downlink Data 包含什么内容？</li>
+<li>Q : 为什么是first？</li>
+</ul>
+</li>
+<li><p>(Optional) MME 发送 Notify Request 到 HSS。</p>
+<ul>
+<li>Q : 这个在什么情况下会触发？</li>
+<li>Q : Notify Request包含什么？</li>
+<li>Q : HSS 收到 request 后会做什么？</li>
+</ul>
+</li>
+<li><p>(Optional) HSS 发送 Notify Response 到 MME。</p>
+<ul>
+<li>Q : Notify Response包含什么内容？</li>
+</ul>
+</li>
+</ol>
+</div><div class="article-licensing box"><div class="licensing-title"><p>LTE Learning - Attach Procedure</p><p><a href="https://jarvis-d-01.github.io/LTE Learning - Attach Procedure/">https://jarvis-d-01.github.io/LTE Learning - Attach Procedure/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><a href="https://jarvis-d-01.github.io"><p>Dylan Zhu</p></a></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2021-09-03</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2021-09-05</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="recommend-area"></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="/" alt="支付宝"></span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="buymeacoffee"><span class="icon is-small"><i class="fas fa-coffee"></i></span><span>送我杯咖啡</span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/leetcode-%E5%88%A0%E9%99%A4%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/"><span class="level-item">leetcode-删除二叉搜索树中的节点</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--><div class="card"><div class="card-content"><div class="title is-5">评论</div><div class="content" id="comment-container"></div><script>var valine = new Valine({
+            el: '#comment-container' ,
+            notify: false,
+            verify: false,
+            appId: 'suw03yuV2BeqqRRew4ejGHbl-9Nh9j0Va',
+            appKey: 'PKEcijkDrTTN5qalPY1IUuaK',
+            placeholder: '留下您的高见！',
+            avatar: 'mp',
+            avatarForce: false,
+            meta: ["nick","mail","link"],
+            pageSize: 10,
+            visitor: false,
+            highlight: true,
+            recordIP: false,
+            path:'/LTE Learning - Attach Procedure/',
+            lang:'zh-CN',
+            enableQQ:true,
+            requiredFields:["nick","mail","link"]
+        });</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="is-flex is-mobile" href="#LTE-Learning-Attach-Procedure"><span>LTE Learning - Attach Procedure</span></a></li></ul></div></div><style>.menu-list > li > a.is-active + .menu-list { display: block; }.menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="https://cdn.jsdelivr.net/gh/jarvis-d-01/image@main/head.jpg" alt="谢尔比"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">谢尔比</p><p class="is-size-6 is-block">keep foolish, keep hungry</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>中国江苏</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">29</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">6</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">6</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/jarvis-d-01" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/jarvis-d-01"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/u/1595909810/home"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="mailto:zdl93@hotmail.com"><i class="fa fa-envelope"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Next" href="https://github.com/jarvis-d-01/jarvis-d-01.github.io"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/atom.xml"><i class="fas fa-rss"></i></a></div><div><hr><p id="hitokoto">:D 一言句子获取中...</p><script type="text/javascript" defer>function getYiyan(){
+                                $.getJSON("https://v1.hitokoto.cn/", function (data) {
+                                if(data){
+                                    $('#hitokoto').html("");
+                                    $('#hitokoto').append("<strong style='color: #3273dc;'>"+data.hitokoto+"</strong>"+
+                                    "<p>"+"来源《"+data.from+"》</p><p>提供者-"+data.creator+"</p>");
+                                }});}
+                                $(function (){getYiyan();$('#hitokoto').click(function(){getYiyan();})});</script></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-09-02T16:00:00.000Z">2021-09-03</time></p><p class="title"><a href="/LTE%20Learning%20-%20Attach%20Procedure/">LTE Learning - Attach Procedure</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-04-16T16:00:00.000Z">2021-04-17</time></p><p class="title"><a href="/leetcode-%E5%88%A0%E9%99%A4%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E8%8A%82%E7%82%B9/">leetcode-删除二叉搜索树中的节点</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a> / <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/">算法</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-04-16T16:00:00.000Z">2021-04-17</time></p><p class="title"><a href="/leetcode-%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/">leetcode-岛屿数量</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a> / <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/">算法</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-04-16T16:00:00.000Z">2021-04-17</time></p><p class="title"><a href="/leetcode-%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8/">leetcode-排序链表</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a> / <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/">算法</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-04-16T16:00:00.000Z">2021-04-17</time></p><p class="title"><a href="/leetcode-%E8%A7%A3%E7%A0%81%E6%96%B9%E6%B3%95/">leetcode-解码方法</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a> / <a href="/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/">算法</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/%E5%85%B6%E4%BB%96/"><span class="level-start"><span class="level-item">其他</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/"><span class="level-start"><span class="level-item">技术</span></span><span class="level-end"><span class="level-item tag">27</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/"><span class="level-start"><span class="level-item">算法</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%8A%80%E6%9C%AF/%E8%AF%AD%E8%A8%80/"><span class="level-start"><span class="level-item">语言</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%8B%B1%E8%AF%AD/"><span class="level-start"><span class="level-item">英语</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E8%8B%B1%E8%AF%AD/%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB/"><span class="level-start"><span class="level-item">文章阅读</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2021/09/"><span class="level-start"><span class="level-item">九月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/04/"><span class="level-start"><span class="level-item">四月 2021</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/03/"><span class="level-start"><span class="level-item">三月 2021</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/02/"><span class="level-start"><span class="level-item">二月 2021</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/leetcode/"><span class="tag">leetcode</span><span class="tag is-grey-lightest">22</span></a></div><div class="control"><a class="tags has-addons" href="/tags/c/"><span class="tag">c++</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="tag">数据结构</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%84%9F%E6%83%B3/"><span class="tag">感想</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%BF%BB%E8%AF%91/"><span class="tag">翻译</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%80%9A%E4%BF%A1%E6%8A%80%E6%9C%AF/"><span class="tag">通信技术</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><!--!--><div class="column-right-shadow is-hidden-widescreen"></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://cdn.jsdelivr.net/gh/jarvis-d-01/image@main/title2.png" alt="谢尔比" height="28"></a><p class="size-small"><span>&copy; 2021 Dylan Zhu</span>  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> &amp; <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">Amazing</a> <br><span>© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="/message" target="_blank">留言</a>，立即处理]<br /></span><span><span id="statistic-times">loading...</span><script>function createTime(time) {
+            var n = new Date(time);
+            now.setTime(now.getTime() + 250),
+                days = (now - n) / 1e3 / 60 / 60 / 24,
+                dnum = Math.floor(days),
+                hours = (now - n) / 1e3 / 60 / 60 - 24 * dnum,
+                hnum = Math.floor(hours),
+            1 == String(hnum).length && (hnum = "0" + hnum),
+                minutes = (now - n) / 1e3 / 60 - 1440 * dnum - 60 * hnum,
+                mnum = Math.floor(minutes),
+            1 == String(mnum).length && (mnum = "0" + mnum),
+                seconds = (now - n) / 1e3 - 86400 * dnum - 3600 * hnum - 60 * mnum,
+                snum = Math.round(seconds),
+            1 == String(snum).length && (snum = "0" + snum),
+                document.getElementById("statistic-times").innerHTML = "本站自 <strong>"+time.split(" ")[0].replace(/\//g,".")+"</strong> 已运行 <strong>" + dnum + "</strong> 天 <strong>" + hnum + "</strong> 小时 <strong>" + mnum + "</strong> 分 <strong>" + snum + "</strong> 秒！";
+        }var now = new Date();setInterval("createTime('2021/2/21 10:00:00')", 250,"");</script><br></span><div class="size-small"><span>感谢 <strong><span id="busuanzi_value_site_uv">99+</span></strong> 小伙伴的 <strong><span id="busuanzi_value_site_pv">99+</span></strong> 次光临！</span></div></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download This Theme" href="https://github.com/removeif/hexo-theme-amazing"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script>$.getScript('/js/comment-issue-data.js',function(){loadIssueData('suw03yuV2BeqqRRew4ejGHbl-9Nh9j0Va','PKEcijkDrTTN5qalPY1IUuaK','谢尔比','undefined',true);})</script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
